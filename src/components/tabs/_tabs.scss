@@ -17,7 +17,8 @@
 
 [role='tablist'] {
   border: $border-width solid var(--color-ink-border);
-  border-radius: $border-radius-sm;
+  border-radius: var(--radius-sm);
+  corner-shape: squircle;
   display: flex;
   flex-shrink: 0;
   gap: $size-half;
@@ -31,7 +32,8 @@
   --height-btn: #{$size-5};
 
   background-color: transparent;
-  border-radius: $border-radius-sm;
+  border-radius: var(--radius-sm);
+  corner-shape: squircle;
   cursor: pointer;
   flex-grow: 1;
   text-align: center;

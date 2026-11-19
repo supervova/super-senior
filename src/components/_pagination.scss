@@ -25,7 +25,8 @@
 
 // Next and Prev Links
 .pagination__link {
-  border-radius: $border-radius-sm;
+  border-radius: var(--radius-sm);
+  corner-shape: squircle;
   padding-block: $size-1;
   padding-inline: $size-2;
 

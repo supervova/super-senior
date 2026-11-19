@@ -41,7 +41,8 @@
   margin-block: $size-line;
 
   > img {
-    border-radius: $border-radius-sm;
+    border-radius: var(--radius-sm);
+    corner-shape: squircle;
   }
 }
 

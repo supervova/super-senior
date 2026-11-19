@@ -10,9 +10,10 @@
   background-position: left $size-2 top $size-2p5;
   background-repeat: no-repeat;
   background-size: $size-icon-xy auto;
-  border-radius: $border-radius-base;
+  border-radius: var(--radius-base);
   box-shadow: var(--box-shadow-z2);
   color: var(--color-success-text);
+  corner-shape: squircle;
   padding-top: calc(var(--padding-top-base) + #{$size-1p5});
   padding-bottom: calc(var(--padding-bottom-base) + #{$size-2});
   padding-right: $size-3;

@@ -55,7 +55,8 @@
     background-position: 50% rem(216), 50% 50%;
     background-attachment: fixed, scroll;
     background-size: rem(648);
-    border-radius: $border-radius-lg;
+    border-radius: var(--radius-lg);
+    corner-shape: squircle;
 
     &::before,
     &::after {
@@ -143,7 +144,8 @@
 
 .hero__overlay.is-red-patch {
   background: var(--color-error-base);
-  border-radius: 0 $border-radius-base $border-radius-base 0;
+  border-radius: 0 var(--radius-base) var(--radius-base) 0;
+  corner-shape: squircle;
   mix-blend-mode: multiply;
   top: 23%;
   width: 28%;
@@ -163,8 +165,9 @@
 
   @media (--tablet-l) {
     display: block;
-    border-radius: $border-radius-base;
+    border-radius: var(--radius-base);
     box-shadow: var(--box-shadow-z4);
+    corner-shape: squircle;
     overflow: hidden;
     position: absolute;
     height: $size-line * 4;
@@ -196,9 +199,9 @@
   display: none;
 
   @media (--tablet) {
-    border-radius: $border-radius-base 0 0 $border-radius-base;
-    background: url('#{$site-assets}/img/pages/home/hero-space.png') 50% 50%
-      no-repeat;
+    background: url('#{$site-assets}/img/pages/home/hero-space.png') 50% 50% no-repeat;
+    border-radius: var(--radius-base) 0 0 var(--radius-base);
+    corner-shape: squircle;
     display: block;
     position: absolute;
     top: rem(144);
@@ -223,7 +226,8 @@
   padding-inline: $size-2p5;
 
   @media (--tablet) {
-    border-radius: $border-radius-lg;
+    border-radius: var(--radius-lg);
+    corner-shape: squircle;
     box-shadow: var(--box-shadow-z5);
     text-align: left;
     padding-inline: 0;
@@ -263,8 +267,9 @@
 
   @media (--tablet) {
     background-color: var(--color-brand-primary);
-    border-radius: $border-radius-lg $border-radius-lg 0 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     color: var(--color-ink-inverse-base);
+    corner-shape: squircle;
     margin-bottom: 0;
     padding-top: rem(37);
     padding-bottom: rem(35);
@@ -276,7 +281,8 @@
   @media (--tablet) {
     background-color: var(--color-background-frosted-glass);
     backdrop-filter: var(--color-background-frosted-glass-backdrop);
-    border-radius: 0 0 $border-radius-lg $border-radius-lg;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    corner-shape: squircle;
     margin-bottom: 0;
     padding-top: rem(22);
     padding-bottom: rem(34);

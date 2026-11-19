@@ -26,9 +26,10 @@
   &::after {
     background-color: var(--tooltip-background);
     backdrop-filter: blur(8px);
-    border-radius: $border-radius-sm;
+    border-radius: var(--radius-sm);
     color: var(--color-ink-inverse-base);
     content: attr(aria-label);
+    corner-shape: squircle;
     font-size: var(--font-size-small);
     line-height: var(--line-height-small);
     text-transform: none;

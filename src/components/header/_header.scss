@@ -291,8 +291,9 @@
 .header__popover {
   background-color: var(--color-background-frosted-glass);
   backdrop-filter: var(--color-background-frosted-glass-backdrop);
-  border-radius: $border-radius-base;
+  border-radius: var(--radius-base);
   box-shadow: var(--box-shadow-z3);
+  corner-shape: squircle;
   display: none;
   padding: $size-3 $size-4 $size-4;
   opacity: 0;

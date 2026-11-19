@@ -23,8 +23,9 @@
   text-decoration: none;
 
   &::before {
-    border-radius: $border-radius-base;
+    border-radius: var(--radius-base);
     content: '';
+    corner-shape: squircle;
     position: absolute;
     top: $size-3;
     right: 0;

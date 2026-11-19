@@ -7,10 +7,11 @@
 // #region
 
 .card {
-  background-clip: padding-box;
   background: var(--color-background-base);
-  border-radius: $border-radius-base;
+  background-clip: padding-box;
+  border-radius: var(--radius-base);
   box-shadow: var(--box-shadow-z2);
+  corner-shape: squircle;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -25,8 +26,8 @@
 }
 
 .card > header {
-  border-top-left-radius: $border-radius-base;
-  border-top-right-radius: $border-radius-base;
+  border-top-left-radius: var(--radius-base);
+  border-top-right-radius: var(--radius-base);
   margin-top: calc(-1 * var(--padding-x-box) / 2);
   padding-top: $size-3;
 }
@@ -42,8 +43,8 @@
 }
 
 .card > footer {
-  border-bottom-left-radius: $border-radius-base;
-  border-bottom-right-radius: $border-radius-base;
+  border-bottom-left-radius: var(--radius-base);
+  border-bottom-right-radius: var(--radius-base);
   display: flex;
   margin-bottom: calc(-1 * var(--padding-x-box) / 2);
   padding-top: $size-2;
@@ -104,8 +105,9 @@ blockquote,
 }
 
 blockquote {
-  border-radius: $border-radius-base;
+  border-radius: var(--radius-base);
   box-shadow: var(--box-shadow-z2);
+  corner-shape: squircle;
   display: flex;
   flex-direction: column;
   text-align: left;

@@ -221,26 +221,14 @@
 // #region
 
 @mixin border {
-  border-radius: $border-radius-base;
-
+  border-radius: var(--radius-base);
+  corner-shape: squircle;
   display: flex;
   position: relative;
+  outline: 1px solid var(--color-ink-neutral-border);
+  outline-offset: -1px;
   overflow: hidden;
   max-width: max-content;
-
-  // Border
-  &::after {
-    border-radius: $border-radius-sm;
-    box-shadow: inset 0 0 0 1px var(--color-ink-neutral-border);
-    content: '';
-    display: block;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
 
   &:empty {
     display: none;
@@ -334,7 +322,7 @@
   &::-webkit-scrollbar-thumb {
     background-clip: content-box;
     background-color: $thumb-bg;
-    border-radius: $border-radius-pill;
+    border-radius: $radius-pill;
     border: $size-half solid transparent;
   }
 }
@@ -352,9 +340,10 @@
 
 @mixin menu-item {
   --height-btn: auto;
-  border-radius: $border-radius-sm;
+  border-radius: var(--radius-sm);
   background-color: transparent;
   color: var(--menu-color, var(--color-ink-2ry));
+  corner-shape: squircle;
   display: flex;
   align-items: center;
   gap: $size-1;
@@ -419,7 +408,7 @@ woocommerce */
 @mixin button(
   $btn-background-hover: var(--color-brand-background-light),
   $btn-background: var(--color-ink-min),
-  $btn-border-radius: $border-radius-pill,
+  $btn-border-radius: $radius-pill,
   $btn-border: 0,
   $btn-box-shadow-hover: none,
   $btn-box-shadow: none,

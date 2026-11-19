@@ -2,8 +2,9 @@
 
 .card.is-kpi {
   background-color: var(--color-background-2ry);
-  border-radius: $border-radius-base;
+  border-radius: var(--radius-base);
   box-shadow: var(--box-shadow-z1);
+  corner-shape: squircle;
   text-align: center;
   overflow: hidden;
   padding-top: 0;

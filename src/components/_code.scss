@@ -5,7 +5,7 @@ kbd,
 pre,
 samp {
   background-color: var(--color-background-2ry);
-  border-radius: $border-radius-xs;
+  border-radius: var(--radius-xs);
   color: var(--code-color);
   font-family: $font-family-mono;
   font-size: inherit;

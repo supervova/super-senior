@@ -159,7 +159,8 @@ input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type=
 select,
 textarea,
 input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='reset']):not([type='search']) {
-  border-radius: $border-radius-sm;
+  border-radius: var(--radius-sm);
+  corner-shape: squircle;
   padding-left: $size-6;
   padding-inline-start: $size-6;
 }

@@ -8,7 +8,7 @@
 @use 'mixins' as *;
 
 :root {
-    --duration-sm: 0.15s;
+  --duration-sm: 0.15s;
   --easing-base: cubic-bezier(0.2, 0, 0.38, 0.9);
 
   --size-1: 8px;
@@ -26,12 +26,14 @@
 
   --size-line: var(--size-3);
 
-  --radius-xs: var(--size-half);
-  --radius-sm: var(--size-1);
-  --radius-base: var(--size-2);
-  --radius-lg: var(--size-4);
-
+  --radius-xs: #{$radius-xs};
+  --radius-sm: #{$radius-sm};
+  --radius-base: #{$radius-base};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
   --radius-pill: 100vmax;
+
+  // See the squircle-supported radius values at the very end of the file
 
   --width-sm: 272px;
 
@@ -132,6 +134,14 @@
     @each $comp, $value in map.get($height, laptop) {
       --height-#{$comp}: #{$value};
     }
+  }
+
+  @supports (corner-shape: squircle) {
+    --radius-xs: #{$radius-xs * $radius-squircle-factor};
+    --radius-sm: #{$radius-sm * $radius-squircle-factor};
+    --radius-base: #{$radius-base * $radius-squircle-factor};
+    --radius-md: #{$radius-md * $radius-squircle-factor};
+    --radius-lg: #{$radius-lg * $radius-squircle-factor};
   }
   // #endregion
 }

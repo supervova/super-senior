@@ -131,9 +131,10 @@ $skills-increment: 0.04;
     --card-price-text: var(--color-ink-2ry);
 
     background: var(--card-bg);
-    border-radius: var(--size-3);
+    border-radius: var(--radius-md);
     box-shadow: none;
     color: inherit;
+    corner-shape: squircle;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -168,7 +169,8 @@ $skills-increment: 0.04;
 
   @scope (.card-special) {
     .thumbnail {
-      border-radius: var(--size-2);
+      border-radius: var(--radius-base);
+      corner-shape: squircle;
       display: block;
       flex-shrink: 0;
       object-fit: cover;

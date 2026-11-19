@@ -45,8 +45,9 @@
 
   a {
     border: $size-1 solid var(--color-background-2ry);
-    border-radius: $border-radius-base;
+    border-radius: var(--radius-base);
     box-shadow: 0 0 0 rgb(0 0 0 / 0);
+    corner-shape: squircle;
     overflow: hidden;
     pointer-events: none;
     transition: box-shadow $duration-lg $easing-base;

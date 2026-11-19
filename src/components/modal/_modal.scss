@@ -1,31 +1,27 @@
-@use 'sass:map';
 @use '../../styles/abstracts' as *;
 
-/* -----------------------------------------------------------------------------
- * BASE
- * -------------------------------------------------------------------------- */
+// -----------------------------------------------------------------------------
+// BASE
+// -----------------------------------------------------------------------------
 // #region
 
-// The <dialog> itself fulfills the role of a wrapper
-/* dialog */
 .modal {
   --modal-background: var(--color-background-base);
-  --modal-border-radius: #{$border-radius-lg};
+  --modal-border-radius: #{var(--radius-lg)};
   --modal-padding-x: var(--padding-x-box);
 
-  backdrop-filter: var(--modal-overlay-backdrop-filter);
   background-color: var(--modal-overlay-background-color);
   border: 0;
   color: var(--color);
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: var(--modal-overlay-backdrop-filter);
   padding: 0;
   opacity: 1;
   position: fixed;
   inset: 0;
-  transition: display $duration-md $easing-base,
-    opacity $duration-md $easing-base;
+  transition: display $duration-md $easing-base, opacity $duration-md $easing-base;
   transition-behavior: allow-discrete;
   width: inherit;
   min-width: 100%;
@@ -51,20 +47,19 @@
   // Add extra padding on the outside of the scrollbar
   border: $size-1 solid transparent;
   border-bottom-width: $size-2;
-
   border-radius: var(--modal-border-radius) var(--modal-border-radius) 0 0;
+  corner-shape: squircle;
   box-shadow: var(--box-shadow-z5);
   display: flex;
   flex-direction: column;
   margin: auto auto 0;
   padding: 0;
-  overflow-y: auto;
   opacity: 1;
+  overflow-y: auto;
   overscroll-behavior-y: contain;
   position: fixed;
   inset: 0;
-  transition: translate $duration-md $easing-base,
-    opacity $duration-md $easing-base;
+  transition: translate $duration-md $easing-base, opacity $duration-md $easing-base;
   translate: 0;
   width: min(100%, #{$width-lg});
   height: calc(100% - #{$size-5});
@@ -107,6 +102,7 @@
 // #region
 .modal.is-sm {
   border-radius: var(--modal-border-radius);
+  corner-shape: squircle;
   margin-bottom: auto;
   width: min(calc(100vw - #{$size-4}), #{$width-base});
 }
@@ -123,12 +119,11 @@
 // #region
 .modal::before,
 .modal::after {
+  content: '';
   display: block;
   flex-shrink: 0;
-  content: '';
   position: sticky;
-  right: 0;
-  left: 0;
+  inset-inline: 0;
   height: $size-4;
   z-index: 1;
 }
@@ -153,29 +148,24 @@
 // #endregion
 
 // BACKDROP
-// The elements of the top-level do not have access to root custom properties
 .modal:modal::backdrop {
-  background-color: map.get($color, background, scrim);
-  // pointer-events: none;
+  background-color: var(--color-background-scrim);
 }
 
 @supports not (selector(:modal)) {
   .modal::backdrop {
-    background-color: map.get($color, background, scrim);
+    background-color: var(--color-background-scrim);
   }
 }
 
 // #endregion
 
-/* -----------------------------------------------------------------------------
- * HEADER & HEADINGS
- * -------------------------------------------------------------------------- */
+// -----------------------------------------------------------------------------
+// HEADER & HEADINGS
+// -----------------------------------------------------------------------------
 // #region
 .modal > header {
-  /* The subtracted value is equal to the width of the border created for
-  scrollbar indent */
-  padding-right: calc(var(--modal-padding-x) - #{$size-1});
-  padding-left: calc(var(--modal-padding-x) - #{$size-1});
+  // Compensate for scrollbar indent border
   padding-inline: calc(var(--modal-padding-x) - #{$size-1});
   position: relative;
 
@@ -189,17 +179,17 @@
 .modal > .is-pinned {
   @media (--phone) {
     background-color: var(--color-background-frosted-glass);
-    backdrop-filter: var(--color-background-frosted-glass-backdrop);
     box-shadow: 0 1px 0 var(--color-ink-border-translucent);
+    backdrop-filter: var(--color-background-frosted-glass-backdrop);
     padding: $size-1 0 0;
     z-index: 2;
 
+    /* stylelint-disable-next-line scss/operator-no-unspaced */
     @supports not selector(section:has(> footer)) {
-      padding-right: $size-1 * 11;
-      padding-left: $size-1 * 11;
       padding-inline: $size-1 * 11;
     }
 
+    /* stylelint-disable-next-line at-rule-no-vendor-prefix */
     @-moz-document url-prefix('') {
       background-color: hsl(var(--h) var(--s-neutral) 99% / 0.9);
     }
@@ -208,18 +198,13 @@
 
 .modal:has(> footer) > .is-pinned {
   @media (--phone) {
-    padding-right: $size-1 * 11;
-    padding-left: $size-1 * 11;
     padding-inline: $size-1 * 11;
   }
 }
 
 .modal__close + .is-pinned {
   @media (--phone) {
-    padding-right: $size-8;
-    padding-left: calc(var(--modal-padding-x) - #{$size-1});
-    padding-inline-end: $size-8;
-    padding-inline-start: calc(var(--modal-padding-x) - #{$size-1});
+    padding-inline: calc(var(--modal-padding-x) - #{$size-1}) $size-8;
   }
 
   @media (--tablet) {
@@ -250,13 +235,12 @@
 }
 
 .modal__close {
-  background-color: var(--color-background-2ry);
-  // Expand clicable area to recomended size
+  // Expand clickable area to recommended size
   background-clip: padding-box;
-  border: solid $size-1 transparent;
-  // Lift up over the scrim
-  order: -1;
+  background-color: var(--color-background-2ry);
+  border: $size-1 solid transparent;
   align-self: flex-end;
+  order: -1;
   position: sticky;
   top: 0;
   inset-inline-end: $size-1;
@@ -278,22 +262,17 @@
 
 // #endregion
 
-/* -----------------------------------------------------------------------------
- * CONTENT
- * -------------------------------------------------------------------------- */
+// -----------------------------------------------------------------------------
+// CONTENT
+// -----------------------------------------------------------------------------
 // #region
-.modal__body {
-  padding-right: calc(var(--modal-padding-x) - #{$size-1});
-  padding-left: calc(var(--modal-padding-x) - #{$size-1});
+.modal__body,
+.modal__content {
   padding-inline: calc(var(--modal-padding-x) - #{$size-1});
 }
 
 // External content container
 .modal__content {
-  padding-right: calc(var(--modal-padding-x) - #{$size-1});
-  padding-left: calc(var(--modal-padding-x) - #{$size-1});
-  padding-inline: calc(var(--modal-padding-x) - #{$size-1});
-
   .grid {
     @media (--tablet) {
       --grid-columns: 1;
@@ -302,9 +281,9 @@
 }
 // #endregion
 
-/* -----------------------------------------------------------------------------
- * FOOTER - BUTTONS
- * -------------------------------------------------------------------------- */
+// -----------------------------------------------------------------------------
+// FOOTER - BUTTONS
+// -----------------------------------------------------------------------------
 // #region
 
 .modal > footer {
@@ -331,14 +310,14 @@
 
   @media (--tablet) {
     background-color: var(--color-background-frosted-glass);
-    backdrop-filter: var(--color-background-frosted-glass-backdrop);
-
     // Prevent shift on full scroll caused by the bottom scrim (.modal::after)
     order: 1;
+    backdrop-filter: var(--color-background-frosted-glass-backdrop);
     padding: $size-2 $size-1 0;
     bottom: 0;
     inset-inline: var(--modal-padding-x) 0;
 
+    /* stylelint-disable-next-line at-rule-no-vendor-prefix */
     @-moz-document url-prefix('') {
       background-color: hsl(var(--h) var(--s-neutral) 99% / 0.9);
     }
@@ -348,14 +327,15 @@
 .modal:not(:has(> header)) > footer {
   @media (--phone) {
     background-color: var(--color-background-frosted-glass);
-    backdrop-filter: var(--color-background-frosted-glass-backdrop);
     box-shadow: 0 1px 0 var(--color-ink-border-translucent);
+    backdrop-filter: var(--color-background-frosted-glass-backdrop);
     padding-bottom: $size-1;
   }
 }
 
 :where(.modal > footer) button {
   border-radius: calc(var(--modal-border-radius) - #{$size-1});
+  corner-shape: squircle;
 
   @media (--phone) {
     max-width: $size-1 * 10;
@@ -363,7 +343,6 @@
 }
 
 :where(.modal > footer) .btn.is-close {
-  margin-right: auto;
   margin-inline-end: auto;
 
   @media (--phone) {
@@ -375,25 +354,23 @@
 // Top Border
 .modal > footer::before {
   @media (--tablet) {
-    border-top: $border-width solid var(--color-ink-min);
     content: '';
+    border-top: $border-width solid var(--color-ink-min);
     display: block;
     position: absolute;
     top: 0;
-    right: 0;
-    left: calc(var(--modal-padding-x) - #{$size-1});
+    inset-inline: calc(var(--modal-padding-x) - #{$size-1}) 0;
     height: 0;
   }
 }
 // #endregion
 
-/* -----------------------------------------------------------------------------
- * LOWER UI LOCK
- * -------------------------------------------------------------------------- */
+// -----------------------------------------------------------------------------
+// LOWER UI LOCK
+// -----------------------------------------------------------------------------
 // #region
 
 // Kill the scroll on the html root
-// stylelint-disable selector-no-qualifying-type
 html:has(dialog[open]) {
   overflow: hidden;
   pointer-events: none;
@@ -404,5 +381,4 @@ html:has(dialog[open]) {
     touch-action: auto;
   }
 }
-// stylelint-enable selector-no-qualifying-type
 // #endregion

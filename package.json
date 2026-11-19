@@ -62,7 +62,8 @@
         true,
         {
           "ignoreProperties": [
-            "interpolate-size"
+            "interpolate-size",
+            "corner-shape"
           ]
         }
       ],

@@ -4,7 +4,7 @@
 /* details */
 .popover {
   --popover-body-background: var(--color-background-2ry);
-  --popover-body-border-radius: #{$border-radius-base};
+  --popover-body-border-radius: #{var(--radius-base)};
   --popover-body-border: 0;
   --popover-body-box-shadow: var(--box-shadow-z3);
   --popover-body-color: var(--color-ink-2ry);
@@ -19,6 +19,7 @@
   border: var(--popover-body-border);
   box-shadow: var(--popover-body-box-shadow);
   color: var(--popover-body-color);
+  corner-shape: squircle;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -68,7 +69,8 @@
   }
 
   summary {
-    border-radius: $border-radius-sm;
+    border-radius: var(--radius-sm);
+    corner-shape: squircle;
     display: flex;
     align-items: center;
     justify-content: center;

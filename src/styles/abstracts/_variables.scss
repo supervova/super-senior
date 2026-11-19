@@ -98,7 +98,7 @@ $color: (
       text: hsl(0 0% 0% / 0.87),
       2ry: hsl(0 0% 0% / 0.54),
       3ry: hsl(0 0% 0% / 0.38),
-      border: hsl(0 0% 0% / 0.12),
+      border: hsl(0 0% 0% / 0.08),
     ),
   ),
   semantic: (
@@ -314,7 +314,7 @@ $typeset: (
       ),
       h2: (
         font-size: rem(32),
-        letter-spacing: -1 * rem(0.8),
+        letter-spacing: -1.6px,
         line-height: calc(40 / 32),
         padding-top: rem(1),
         padding-bottom: rem(7),
@@ -466,19 +466,24 @@ $easing-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275) !default;
 
 $border-width: rem(1) !default;
 
+$radius-squircle-factor: 1.841 !default;
+
 // Rectangular Images
-$border-radius-xs: $size-half !default;
+$radius-xs: $size-half !default;
 
 // Buttons
-$border-radius-sm: $size-1 !default;
+$radius-sm: $size-1 !default;
 
 // Boxes (cards, alerts, covers etc), Popovers, Pickers, Tooltips
-$border-radius-base: $size-2 !default;
+$radius-base: $size-2 !default;
+
+// $radius-base + parent's padding, $size-1
+$radius-md: $size-3 !default;
 
 // Modals
-$border-radius-lg: $size-4 !default;
+$radius-lg: $size-4 !default;
 
-$border-radius-pill: 100vmax !default;
+$radius-pill: 100vmax !default;
 
 // BOX Z-INDEX
 $zindex-sticky: 10 !default;

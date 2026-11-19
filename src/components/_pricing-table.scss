@@ -22,8 +22,9 @@
 
 .plan h4 {
   background: var(--color-brand-primary);
-  border-radius: $border-radius-base $border-radius-base 0 0;
+  border-radius: var(--radius-base) var(--radius-base) 0 0;
   color: var(--color-ink-inverse-base);
+  corner-shape: squircle;
   font-weight: 400;
   line-height: $size-6;
   text-align: center;
@@ -34,8 +35,9 @@
 
   &::before {
     background-repeat: no-repeat;
-    border-radius: $border-radius-base $border-radius-base 0 0;
+    border-radius: var(--radius-base) var(--radius-base) 0 0;
     content: '';
+    corner-shape: squircle;
     position: absolute;
     top: 0;
     right: 0;
@@ -46,8 +48,9 @@
 
 .plan__body {
   background: var(--color-background-2ry);
-  border-radius: 0 0 $border-radius-base $border-radius-base;
+  border-radius: 0 0 var(--radius-base) var(--radius-base);
   box-shadow: var(--box-shadow-z1);
+  corner-shape: squircle;
   display: flex;
   flex-direction: column;
   flex-grow: 1;

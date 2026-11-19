@@ -22,7 +22,7 @@
 
 // Input
 [type='search'] {
-  border-radius: $border-radius-pill;
+  border-radius: $radius-pill;
   // Correct the outline style in Safari
   outline-offset: -2px;
   padding-right: $size-3;
@@ -40,7 +40,8 @@
     // Correct the odd appearance in Chrome and Safari
     // stylelint-disable-next-line property-no-vendor-prefix
     -webkit-appearance: textfield;
-    border-radius: $border-radius-sm;
+    border-radius: var(--radius-sm);
+    corner-shape: squircle;
     font-size: var(--font-size-h2);
     letter-spacing: var(--letter-spacing-h2);
     padding-top: 0;
@@ -76,7 +77,8 @@
 
 // Disable search button when input is empty
 :where([role='search']) [type='submit'] {
-  border-radius: $border-radius-sm;
+  border-radius: var(--radius-sm);
+  corner-shape: squircle;
   opacity: 0.5;
   pointer-events: none;
   position: absolute;

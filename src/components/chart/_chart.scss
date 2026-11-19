@@ -62,14 +62,16 @@
 
 .table__track {
   background: var(--color-background-2ry);
-  border-radius: $border-radius-sm;
+  border-radius: var(--radius-sm);
+  corner-shape: squircle;
   width: 100%;
 }
 
 .table__caption {
   background-image: var(--color-brand-gradient-triple);
-  border-radius: $border-radius-sm;
+  border-radius: var(--radius-sm);
   color: var(--color-ink-inverse-base);
+  corner-shape: squircle;
   font-size: var(--font-size-small);
   line-height: $size-5;
   text-transform: uppercase;

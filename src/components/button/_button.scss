@@ -106,7 +106,7 @@ a[role='button'] {
 
 .btn.is-search {
   background-color: transparent;
-  border-radius: $border-radius-xs;
+  border-radius: var(--radius-xs);
   padding-inline: $size-1p5;
 
   &:active,
@@ -125,8 +125,9 @@ a[role='button'] {
   --height-btn: #{$size-4};
 
   background-color: var(--color-ink-min);
-  border-radius: $border-radius-base;
+  border-radius: var(--radius-base);
   color: var(--color-ink-2ry);
+  corner-shape: squircle;
   padding-left: $size-1p5;
   padding-right: $size-2;
 

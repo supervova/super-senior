@@ -21,7 +21,8 @@
   display: none;
 
   @media (--phone-l) {
-    border-radius: $border-radius-sm;
+    border-radius: var(--radius-sm);
+    corner-shape: squircle;
     display: block;
     margin-left: auto;
     padding-block: $size-half;

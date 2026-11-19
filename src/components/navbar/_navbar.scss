@@ -100,7 +100,7 @@
 .navbar__link {
   --menu-item-padding: #{rem(10) $size-1p5 $size-half};
 
-  border-radius: $border-radius-xs;
+  border-radius: var(--radius-xs);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -215,7 +215,7 @@
 .navbar__actions a {
   @include focus-ring;
 
-  border-radius: $border-radius-xs;
+  border-radius: var(--radius-xs);
   display: flex;
   align-items: center;
   justify-content: center;
